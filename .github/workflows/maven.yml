@@ -26,13 +26,13 @@ jobs:
       run: mvn -B clean verify --file pom.xml
     
     # ============ EXERCICE 2 : SONARCLOUD ============
-    - name: SonarCloud Scan  # ⬅️ CETTE LIGNE MANQUE CHEZ VOUS !
+    - name: SonarCloud Scan  
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
         mvn sonar:sonar \
           -Dsonar.host.url=https://sonarcloud.io \
-          -Dsonar.organization=sonarqubesecurity1 \
-          -Dsonar.projectKey=sonarqubesecurity1_java-350 \
+          -Dsonar.organization=Sonarqubesecurity1 \
+          -Dsonar.projectKey=Sonarqubesecurity1_java-350 \
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
     # =================================================
