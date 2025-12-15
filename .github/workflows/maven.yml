@@ -30,10 +30,5 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
-          mvn sonar:sonar \
-            -Dsonar.host.url=https://sonarcloud.io \
-            -Dsonar.organization=SonarQubeSecurity1 \
-            -Dsonar.projectKey=SonarQubeSecurity1_java-350 \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }} 
-    
+          mvn sonar:sonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
     
