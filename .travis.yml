@@ -1,9 +1,16 @@
 language: java
 
+jdk:
+  - openjdk17
+
 addons:
   sonarcloud:
-    organization: "Sonarqubesecurity1"
+    organization: "sonarqubesecurity1"
+    token:
+      secure: $SONAR_TOKEN
 
 script:
-  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
-  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=Sonarqubesecurity1_java-350
+  - mvn clean verify sonar:sonar \
+      -Dsonar.host.url=https://sonarcloud.io \
+      -Dsonar.organization=sonarqubesecurity1 \
+      -Dsonar.projectKey=com.ipiecoles.java:java350
